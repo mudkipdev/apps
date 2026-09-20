@@ -5,6 +5,7 @@ requires-python = ">=3.11"
 [manifest]
 members = [
     "apps",
+    "image-upscaler",
     "video-editor",
 ]
 
@@ -13,11 +14,20 @@ name = "apps"
 version = "0.0.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "image-upscaler" },
     { name = "video-editor" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "video-editor", editable = "video-editor" }]
+requires-dist = [
+    { name = "image-upscaler", editable = "image-upscaler" },
+    { name = "video-editor", editable = "video-editor" },
+]
+
+[[package]]
+name = "image-upscaler"
+version = "0.1.0"
+source = { editable = "image-upscaler" }
 
 [[package]]
 name = "video-editor"
