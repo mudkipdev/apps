@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Video Editor
+Comment=Edit videos with a simple recipe
+Exec=video-editor %F
+Icon=video-x-generic
+Terminal=false
+Type=Application
+Categories=AudioVideo;Video;
+MimeType=video/mp4;video/webm;video/x-matroska;video/quicktime;
