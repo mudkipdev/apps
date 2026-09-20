@@ -109,6 +109,7 @@ class MainWindow(Adw.ApplicationWindow):
         self.output: Path | None = None
         self.result: Gdk.Texture | None = None
         self.models: list[Model] = []
+        self.refreshing = False
         self.cancelled = False
         self.task_dialog: Adw.Dialog | None = None
         self.settings_dialog: Adw.PreferencesDialog | None = None
@@ -199,11 +200,19 @@ class MainWindow(Adw.ApplicationWindow):
 
     def _refresh_models(self):
         self.models = self.upscaler.installed_models() or [MODELS[0]]
+        selected = self.settings.model
+        self.refreshing = True
         self.model_dropdown.set_model(Gtk.StringList.new([f"{model.label}  ·  {model.scale}×" for model in self.models]))
-        index = next((position for position, model in enumerate(self.models) if model.stem == self.settings.model), 0)
+        index = next((position for position, model in enumerate(self.models) if model.stem == selected), 0)
         self.model_dropdown.set_selected(index)
+        self.refreshing = False
+        if self.settings.model != self.models[index].stem:
+            self.settings.model = self.models[index].stem
+            self.settings.save()
 
     def _model_changed(self, _dropdown, _param):
+        if self.refreshing:
+            return
         model = self._selected_model()
         if model is not None:
             self.settings.model = model.stem
