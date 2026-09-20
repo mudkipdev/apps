@@ -6,7 +6,7 @@ import tempfile
 from pathlib import Path
 from typing import Callable
 
-from .model import MediaInfo, Operation, OperationKind
+from model import MediaInfo, Operation, OperationKind
 
 
 class ExportCancelled(Exception):

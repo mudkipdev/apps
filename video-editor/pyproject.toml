@@ -10,10 +10,10 @@ requires-python = ">=3.11"
 dependencies = []
 
 [project.scripts]
-video-editor = "video_editor:main"
+video-editor = "application:main"
 
 [tool.setuptools]
-packages = ["video_editor"]
+py-modules = ["application", "ffmpeg", "model"]
 
 [tool.uv]
 package = true
