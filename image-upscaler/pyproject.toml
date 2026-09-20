@@ -10,10 +10,13 @@ requires-python = ">=3.11"
 dependencies = []
 
 [project.scripts]
-image-upscaler = "image_upscaler.application:main"
+image-upscaler = "image_upscaler.frontend:main"
 
 [tool.setuptools]
 packages = ["image_upscaler"]
+
+[tool.setuptools.package-dir]
+image_upscaler = "."
 
 [tool.uv]
 package = true

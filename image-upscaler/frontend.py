@@ -14,8 +14,7 @@ gi.require_version("Gtk", "4.0")
 
 from gi.repository import Adw, Gdk, Gio, GLib, Graphene, Gtk
 
-from .model import FORMATS, MODELS, Model, Settings, data_dir
-from .upscale import UpscaleCancelled, Upscaler
+from .backend import FORMATS, MODELS, Model, Settings, UpscaleCancelled, Upscaler, data_dir
 
 
 APP_ID = "dev.mudkip.ImageUpscaler"

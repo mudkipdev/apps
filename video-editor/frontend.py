@@ -11,8 +11,7 @@ gi.require_version("Gtk", "4.0")
 
 from gi.repository import Adw, Gdk, Gio, GLib, Gtk
 
-from ffmpeg import ExportCancelled, Pipeline, dependencies_available, operation_label, probe
-from model import MediaInfo, Operation, OperationKind
+from .backend import ExportCancelled, MediaInfo, Operation, OperationKind, Pipeline, dependencies_available, operation_label, probe
 
 
 APP_ID = "dev.mudkip.VideoEditor"

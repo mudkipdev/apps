@@ -1,3 +1,3 @@
-from image_upscaler.application import main
+from image_upscaler.frontend import main
 
 raise SystemExit(main())
